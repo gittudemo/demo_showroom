@@ -1,0 +1,50 @@
+<!-- Navigation Bar -->
+<nav class="navbar">
+  <div class="nav-container">
+    <div class="nav-logo">
+      <span class="logo-icon">🚪</span>
+      <span class="logo-text">A.K Door Shop</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#doors">Doors</a></li>
+
+      <li><a routerLink="/address" [routerLinkActive]="['router-link-active']">Address</a></li>
+      <li><a routerLink="/contact" [routerLinkActive]="['router-link-active']">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>The Perfect Door for Every Space</h1>
+    <p>Premium doors designed and crafted for modern living</p>
+    <button class="cta-button">Call : 9886378670</button>
+  </div>
+</section>
+
+<!-- Products Section -->
+<section class="products-section" id="doors">
+  <div class="section-header">
+    <h2>Our Collection</h2>
+    <p>Discover our curated selection of premium doors</p>
+  </div>
+
+  <div class="products-grid">
+    @for (door of doors; track door.id) {
+      <div class="product-card">
+        <div class="product-image-wrapper">
+          <img [src]="door.imageUrl" [alt]="door.name" class="product-image" />
+        </div>
+        <div class="product-info">
+          <h3>{{ door.name }}</h3>
+          <p class="product-description">{{ door.description }}</p>
+          <div class="product-footer">
+            <span class="product-price">₹{{ door.price }}</span>
+            <button class="product-button">Learn More</button>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</section>
